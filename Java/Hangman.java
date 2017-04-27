@@ -4,13 +4,11 @@ public class Hangman {
 
 	private static String[] words = {"terminator", "banana", "computer", "cow", "rain", "water" };
 	private static String word = words[(int) (Math.random() * words.length)];
-	static String asterisk = "";
-	static int count = 0;
+	private static String asterisk = new String(new char[word.length()]).replace("\0", "*");
+	private static int count = 0;
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
-		asterisk += new String(new char[word.length()]).replace("\0", "*");
 
 		while (count < 7 && asterisk.contains("*")) {
 			System.out.println("Guess any letter in the word");
@@ -124,7 +122,7 @@ public class Hangman {
 			System.out.println("   |         / | \\");
 			System.out.println("   |          / \\ ");
 			System.out.println("___|___      /   \\");
-			System.out.println("GAME OVER!");
+			System.out.println("GAME OVER! The word was " + word);
 		}
 	}
 }
